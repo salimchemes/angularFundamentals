@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <ul>
+        <li *ngFor="let character of characters$" #items>
+          <span *ngIf="character">{{ character.name }}</span>
+          <a href="#" (click)="getCharacterDetails(character)">see details</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <app-character-details
+        *ngIf="characterSelected"
+        [character]="characterSelected"
+      ></app-character-details>
+    </div>
+  </div>
+</div>
