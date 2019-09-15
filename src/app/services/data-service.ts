@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { tap, map } from "rxjs/operators";
+import { map } from "rxjs/operators";
 import { Subject } from "rxjs/Subject";
 import { Observable } from "rxjs/Observable";
 import { Character } from "../models/character";
@@ -15,14 +15,8 @@ export class DataService {
 
   getResource() {
     return this.http.get(this.baseUrl + "people").pipe(
-      tap(() => {
-        console.log("Before map");
-      }),
       map(res => {
         return res["results"];
-      }),
-      tap(() => {
-        console.log("After map");
       })
     );
   }
