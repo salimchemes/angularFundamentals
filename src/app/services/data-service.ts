@@ -13,7 +13,7 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  getResource() {
+  getResources() {
     return this.http.get(this.baseUrl + "people").pipe(
       map(res => {
         return res["results"];

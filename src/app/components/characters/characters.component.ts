@@ -13,7 +13,7 @@ export class CharactersComponent implements OnInit {
   characters$: Observable<Character[]>;
   characterSelected: Character;
   ngOnInit() {
-    this.dataService.getResource().subscribe(data => (this.characters$ = data));
+    this.characters$ = this.dataService.getResources();
   }
   getCharacterDetails(character: Character) {
     this.characterSelected = character;
